@@ -38,4 +38,4 @@ def crear_archivos_por_patron(archivo_entrada):
     print(f"Se crearon {i} archivos con los patrones encontrados y la información entre ellos.")
 
 # Llama a la función para procesar el archivo de entrada
-crear_archivos_por_patron(r'C:\Users\Usuario\Desktop\Universidad\5ºCurso\2ºCuatri\TFG\HerramientaOntologías\FicherosEjemplo\Output\Patterns_name.txt')
+crear_archivos_por_patron(r'Output/Patterns_name.txt')
