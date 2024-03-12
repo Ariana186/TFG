@@ -1,0 +1,406 @@
+Pattern 1
+Times 2
+Different ontologies 2
+Ontologies in which it appears saref.rdf (1); saref4agri.rdf (1); 
+saref:Command
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:minQualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+  |  |  |owl:onClass
+  |  |  |  |saref:Function
+  |  |  |owl:onProperty
+  |  |  |  |saref:isCommandOf
+
+Pattern 2
+Times 2
+Different ontologies 2
+Ontologies in which it appears saref.rdf (1); saref4agri.rdf (1); 
+saref:Command
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:State
+  |  |  |owl:onProperty
+  |  |  |  |saref:actsUpon
+
+Pattern 3
+Times 5
+Different ontologies 5
+Ontologies in which it appears saref.rdf (1); saref4auto.rdf (1); saref4city.rdf (1); saref4watr.rdf (1); saref4wear.rdf (1); 
+saref:Device
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Property
+  |  |  |owl:onProperty
+  |  |  |  |saref:measuresProperty
+
+Pattern 4
+Times 5
+Different ontologies 5
+Ontologies in which it appears saref.rdf (1); saref4auto.rdf (1); saref4city.rdf (1); saref4watr.rdf (1); saref4wear.rdf (1); 
+saref:Device
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Property
+  |  |  |owl:onProperty
+  |  |  |  |saref:controlsProperty
+
+Pattern 5
+Times 5
+Different ontologies 5
+Ontologies in which it appears saref.rdf (1); saref4auto.rdf (1); saref4city.rdf (1); saref4watr.rdf (1); saref4wear.rdf (1); 
+saref:Device
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |saref:makesMeasurement
+
+Pattern 6
+Times 4
+Different ontologies 4
+Ontologies in which it appears saref.rdf (1); saref4agri.rdf (1); saref4city.rdf (1); saref4watr.rdf (1); 
+saref:FeatureOfInterest
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |saref:hasMeasurement
+
+Pattern 7
+Times 4
+Different ontologies 4
+Ontologies in which it appears saref.rdf (1); saref4agri.rdf (1); saref4auto.rdf (1); saref4city.rdf (1); 
+saref:FeatureOfInterest
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Property
+  |  |  |owl:onProperty
+  |  |  |  |saref:hasProperty
+
+Pattern 8
+Times 2
+Different ontologies 2
+Ontologies in which it appears saref.rdf (1); saref4agri.rdf (1); 
+saref:Function
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:minQualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+  |  |  |owl:onClass
+  |  |  |  |saref:Command
+  |  |  |owl:onProperty
+  |  |  |  |saref:hasCommand
+
+Pattern 9
+Times 8
+Different ontologies 8
+Ontologies in which it appears saref.rdf (1); saref4agri.rdf (1); saref4auto.rdf (1); saref4bldg.rdf (1); saref4city.rdf (1); saref4envi.rdf (1); saref4watr.rdf (1); saref4wear.rdf (1); 
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Property
+  |  |  |owl:onProperty
+  |  |  |  |saref:relatesToProperty
+
+Pattern 10
+Times 8
+Different ontologies 8
+Ontologies in which it appears saref.rdf (1); saref4agri.rdf (1); saref4auto.rdf (1); saref4bldg.rdf (1); saref4city.rdf (1); saref4envi.rdf (1); saref4watr.rdf (1); saref4wear.rdf (1); 
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onClass
+  |  |  |  |saref:Property
+  |  |  |owl:onProperty
+  |  |  |  |saref:relatesToProperty
+  |  |  |owl:qualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+
+Pattern 11
+Times 8
+Different ontologies 8
+Ontologies in which it appears saref.rdf (1); saref4agri.rdf (1); saref4auto.rdf (1); saref4bldg.rdf (1); saref4city.rdf (1); saref4envi.rdf (1); saref4watr.rdf (1); saref4wear.rdf (1); 
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onClass
+  |  |  |  |saref:UnitOfMeasure
+  |  |  |owl:onProperty
+  |  |  |  |saref:isMeasuredIn
+  |  |  |owl:qualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+
+Pattern 12
+Times 8
+Different ontologies 8
+Ontologies in which it appears saref.rdf (1); saref4agri.rdf (1); saref4auto.rdf (1); saref4bldg.rdf (1); saref4city.rdf (1); saref4envi.rdf (1); saref4watr.rdf (1); saref4wear.rdf (1); 
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:UnitOfMeasure
+  |  |  |owl:onProperty
+  |  |  |  |saref:isMeasuredIn
+
+Pattern 13
+Times 5
+Different ontologies 5
+Ontologies in which it appears saref.rdf (1); saref4agri.rdf (1); saref4city.rdf (1); saref4watr.rdf (1); saref4wear.rdf (1); 
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:cardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+  |  |  |owl:onProperty
+  |  |  |  |saref:hasValue
+
+Pattern 14
+Times 4
+Different ontologies 4
+Ontologies in which it appears saref.rdf (1); saref4agri.rdf (1); saref4city.rdf (1); saref4wear.rdf (1); 
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:FeatureOfInterest
+  |  |  |owl:onProperty
+  |  |  |  |saref:isMeasurementOf
+
+Pattern 15
+Times 8
+Different ontologies 8
+Ontologies in which it appears saref.rdf (1); saref4agri.rdf (1); saref4auto.rdf (1); saref4bldg.rdf (1); saref4city.rdf (1); saref4envi.rdf (1); saref4watr.rdf (1); saref4wear.rdf (1); 
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:dateTime
+  |  |  |owl:onProperty
+  |  |  |  |saref:hasTimestamp
+
+Pattern 16
+Times 3
+Different ontologies 3
+Ontologies in which it appears saref.rdf (1); saref4agri.rdf (1); saref4city.rdf (1); 
+saref:Property
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:FeatureOfInterest
+  |  |  |owl:onProperty
+  |  |  |  |saref:isPropertyOf
+
+Pattern 17
+Times 6
+Different ontologies 6
+Ontologies in which it appears saref.rdf (1); saref4agri.rdf (1); saref4auto.rdf (1); saref4city.rdf (1); saref4watr.rdf (1); saref4wear.rdf (1); 
+saref:Property
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Device
+  |  |  |owl:onProperty
+  |  |  |  |saref:isMeasuredByDevice
+
+Pattern 18
+Times 6
+Different ontologies 6
+Ontologies in which it appears saref.rdf (1); saref4agri.rdf (1); saref4auto.rdf (1); saref4city.rdf (1); saref4watr.rdf (1); saref4wear.rdf (1); 
+saref:Property
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |saref:relatesToMeasurement
+
+Pattern 19
+Times 6
+Different ontologies 6
+Ontologies in which it appears saref.rdf (1); saref4agri.rdf (1); saref4auto.rdf (1); saref4city.rdf (1); saref4watr.rdf (1); saref4wear.rdf (1); 
+saref:Property
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Device
+  |  |  |owl:onProperty
+  |  |  |  |saref:isControlledByDevice
+
+Pattern 20
+Times 4
+Different ontologies 4
+Ontologies in which it appears saref4agri.rdf (1); saref4auto.rdf (1); saref4envi.rdf (1); saref4watr.rdf (1); 
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onDataRange
+  |  |  |  |xsd:float
+  |  |  |owl:onProperty
+  |  |  |  |saref:hasValue
+  |  |  |owl:qualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+
+Pattern 21
+Times 2
+Different ontologies 2
+Ontologies in which it appears saref4city.rdf (1); saref4wear.rdf (1); 
+s4city:Event
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |s4city:Facility
+  |  |  |owl:onProperty
+  |  |  |  |s4city:takesPlaceAtFacility
+
+Pattern 22
+Times 2
+Different ontologies 2
+Ontologies in which it appears saref4city.rdf (1); saref4watr.rdf (1); 
+s4city:KeyPerformanceIndicator
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |time:TemporalDuration
+  |  |  |owl:onProperty
+  |  |  |  |s4city:hasCalculationPeriod
+
+Pattern 23
+Times 2
+Different ontologies 2
+Ontologies in which it appears saref4city.rdf (1); saref4watr.rdf (1); 
+s4city:KeyPerformanceIndicator
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:FeatureOfInterest
+  |  |  |owl:onProperty
+  |  |  |  |s4city:isKPIOf
+
+Pattern 24
+Times 2
+Different ontologies 2
+Ontologies in which it appears saref4city.rdf (1); saref4watr.rdf (1); 
+s4city:KeyPerformanceIndicatorAssessment
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4city:isDerivedFrom
+
+Pattern 25
+Times 2
+Different ontologies 2
+Ontologies in which it appears saref4city.rdf (1); saref4watr.rdf (1); 
+s4city:KeyPerformanceIndicatorAssessment
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |s4city:KeyPerformanceIndicator
+  |  |  |owl:onProperty
+  |  |  |  |s4city:quantifiesKPI
+
+Pattern 26
+Times 2
+Different ontologies 2
+Ontologies in which it appears saref4city.rdf (1); saref4watr.rdf (1); 
+s4city:KeyPerformanceIndicatorAssessment
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |s4city:Agent
+  |  |  |owl:onProperty
+  |  |  |  |s4city:isAssessedBy
+
+Pattern 27
+Times 2
+Different ontologies 2
+Ontologies in which it appears saref4city.rdf (1); saref4watr.rdf (1); 
+s4city:KeyPerformanceIndicatorAssessment
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:cardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+  |  |  |owl:onProperty
+  |  |  |  |saref:hasValue
+
+Pattern 28
+Times 2
+Different ontologies 2
+Ontologies in which it appears saref4city.rdf (1); saref4watr.rdf (1); 
+s4city:KeyPerformanceIndicatorAssessment
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:FeatureOfInterest
+  |  |  |owl:onProperty
+  |  |  |  |s4city:assesses
+
+Pattern 29
+Times 2
+Different ontologies 2
+Ontologies in which it appears saref4city.rdf (1); saref4watr.rdf (1); 
+s4city:KeyPerformanceIndicatorAssessment
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:dateTime
+  |  |  |owl:onProperty
+  |  |  |  |s4city:hasExpirationDate
+
+Pattern 30
+Times 2
+Different ontologies 2
+Ontologies in which it appears saref4city.rdf (1); saref4watr.rdf (1); 
+s4city:KeyPerformanceIndicatorAssessment
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:UnitOfMeasure
+  |  |  |owl:onProperty
+  |  |  |  |saref:isMeasuredIn
+
+Pattern 31
+Times 2
+Different ontologies 2
+Ontologies in which it appears saref4city.rdf (1); saref4watr.rdf (1); 
+s4city:KeyPerformanceIndicatorAssessment
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |time:TemporalEntity
+  |  |  |owl:onProperty
+  |  |  |  |s4city:refersToTime
+
+Pattern 32
+Times 2
+Different ontologies 2
+Ontologies in which it appears saref4city.rdf (1); saref4watr.rdf (1); 
+s4city:KeyPerformanceIndicatorAssessment
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:dateTime
+  |  |  |owl:onProperty
+  |  |  |  |s4city:hasCreationDate
+
+Pattern 33
+Times 2
+Different ontologies 2
+Ontologies in which it appears saref4city.rdf (1); saref4watr.rdf (1); 
+s4city:KeyPerformanceIndicatorAssessment
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:dateTime
+  |  |  |owl:onProperty
+  |  |  |  |s4city:hasLastUpdateDate
+
