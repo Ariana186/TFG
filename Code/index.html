@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visualización de Ontologías</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+      nav {
+        background-color: #ffffffe1;
+        padding: 10px 0;
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        text-align: right;
+      }
+
+      li {
+        display: inline;
+        margin-right: 20px;
+      }
+
+      a {
+        color: #0e0d0d;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      a:hover {
+        color: #ccc;
+      }
+
+      #contenedor-estadistico {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        flex-direction: row;
+      }
+      #contenedor-estadistico2 {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        flex-direction: row;
+      }
+      #grafico-circular {
+        width: 400px;
+        height: 400px;
+      }
+      #texto-derecha {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        color: #333;
+        margin-left: 40px;
+      }
+
+      #ontologia-diagrama {
+        white-space: pre;
+      }
+      #ontologia-diagrama-type {
+        white-space: pre;
+      }
+      /* Estilos para el título del diagrama ontológico */
+      #titulo-diagrama {
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        color: #333; /* Color de texto negro */
+        text-align: left; /* Alineación centrada del texto */
+        margin-bottom: 10px; /* Espacio inferior */
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <ul>
+        <li><a>PATTERNS</a></li>
+        <li><a>ABOUT</a></li>
+      </ul>
+    </nav>
+
+    <!-- Sección PATTERNS NAME -->
+    <h1>PATTERN 1</h1>
+    <h2>PATTERNS NAME</h2>
+    <!-- Grafico Circular -->
+    <h3 class="titulo-diagrama">Ontologies in which it appears</h3>
+
+    <div id="contenedor-estadistico">
+      <div id="grafico-circular">
+        <canvas id="myChartName" width="300" height="300"></canvas>
+        <script
+          type="text/javascript"
+          id="identificador_js"
+          src="graficoCircular.js?ctx=myChartName?"
+          defer
+        ></script>
+      </div>
+      <div id="texto-derecha">
+        Different Ontologies: 2 <br /><br /><br />
+        Total Structures: 2
+      </div>
+    </div>
+
+    <!-- Diagrama -->
+    <h3 class="titulo-diagrama">Diagrama Ontológico</h3>
+    <div id="ontologia-diagrama"></div>
+    <script src="diagramaOntologies.js" defer></script>
+    <!-- Llamada a la función para cargar el diagrama ontológico -->
+
+    <!-- Sección PATTERNS TYPE -->
+
+    <h2>PATTERNS TYPE</h2>
+    <!-- Grafico Circular -->
+    <h3 class="titulo-diagrama">Ontologies in which it appears</h3>
+    <div id="contenedor-estadistico2">
+      <div id="grafico-circular2">
+        <canvas id="myChartType" width="300" height="300"></canvas>
+        <script
+          type="text/javascript"
+          id="identificador2_js"
+          src="graficoCircularType.js?ctx=myChartType?"
+          defer
+        ></script>
+      </div>
+      <div id="texto-derecha">
+        Different Ontologies: 8 <br /><br /><br />
+        Total Structures: 139
+      </div>
+    </div>
+
+    <!-- Diagrama -->
+    <h3 class="titulo-diagrama">Diagrama Ontológico</h3>
+    <div id="ontologia-diagrama-type"></div>
+    <script src="diagramaOntologiesType.js" defer></script>
+    <!-- Llamada a la función para cargar el diagrama ontológico -->
+  </body>
+</html>

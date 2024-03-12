@@ -1,0 +1,1 @@
+Ontologies in which it appears saref.rdf (26); saref4agri.rdf (17); saref4auto.rdf (79); saref4envi.rdf (1); saref4inma.rdf (2); saref4lift.rdf (9); saref4syst.rdf (2); saref4watr.rdf (3)

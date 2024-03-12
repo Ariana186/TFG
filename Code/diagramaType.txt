@@ -1,0 +1,7 @@
+owl:Class
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |owl:ObjectProperty
+  |  |  |owl:someValuesFrom
+  |  |  |  |owl:Class

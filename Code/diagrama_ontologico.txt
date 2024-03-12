@@ -1,0 +1,9 @@
+saref:Command
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:minQualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+  |  |  |owl:onClass
+  |  |  |  |saref:Function
+  |  |  |owl:onProperty
+  |  |  |  |saref:isCommandOf

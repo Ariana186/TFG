@@ -1,0 +1,64 @@
+nav {
+    background-color: #fff;
+    padding: 10px 0;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+  }
+
+  li {
+    display: inline;
+    margin-right: 20px;
+  }
+
+  a {
+    color: #0e0d0d;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  a:hover {
+    color: #ccc;
+  }
+
+  #contenedor-estadistico {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-direction: row;
+  }
+  #contenedor-estadistico2 {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-direction: row;
+  }
+  #grafico-circular {
+    width: 400px;
+    height: 400px;
+  }
+  #texto-derecha {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    margin-left: 40px;
+  }
+
+  #ontologia-diagrama {
+    white-space: pre;
+  }
+  #ontologia-diagrama-type {
+    white-space: pre;
+  }
+  /* Estilos para el título del diagrama ontológico */
+  #titulo-diagrama {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    color: #333; /* Color de texto negro */
+    text-align: left; /* Alineación centrada del texto */
+    margin-bottom: 10px; /* Espacio inferior */
+  }
