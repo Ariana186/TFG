@@ -1,0 +1,332 @@
+Pattern 1
+Times 139
+Different ontologies 8
+Ontologies in which it appears saref.rdf (26); saref4agri.rdf (17); saref4auto.rdf (79); saref4envi.rdf (1); saref4inma.rdf (2); saref4lift.rdf (9); saref4syst.rdf (2); saref4watr.rdf (3); 
+owl:Class
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |owl:ObjectProperty
+  |  |  |owl:someValuesFrom
+  |  |  |  |owl:Class
+
+Pattern 2
+Times 405
+Different ontologies 11
+Ontologies in which it appears saref.rdf (38); saref4agri.rdf (15); saref4auto.rdf (9); saref4bldg.rdf (210); saref4city.rdf (32); saref4ehaw.rdf (1); saref4ener.rdf (23); saref4envi.rdf (21); saref4inma.rdf (23); saref4watr.rdf (19); saref4wear.rdf (14); 
+owl:Class
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |owl:Class
+  |  |  |owl:onProperty
+  |  |  |  |owl:ObjectProperty
+
+Pattern 3
+Times 25
+Different ontologies 3
+Ontologies in which it appears saref.rdf (7); saref4agri.rdf (3); saref4ener.rdf (15); 
+owl:Class
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:minQualifiedCardinality
+  |  |  |  |Data value
+  |  |  |owl:onClass
+  |  |  |  |owl:Class
+  |  |  |owl:onProperty
+  |  |  |  |owl:ObjectProperty
+
+Pattern 4
+Times 33
+Different ontologies 5
+Ontologies in which it appears saref.rdf (2); saref4agri.rdf (3); saref4ener.rdf (23); saref4grid.rdf (1); saref4watr.rdf (4); 
+owl:Class
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:maxCardinality
+  |  |  |  |Data value
+  |  |  |owl:onProperty
+  |  |  |  |owl:DatatypeProperty
+
+Pattern 5
+Times 24
+Different ontologies 10
+Ontologies in which it appears saref.rdf (2); saref4agri.rdf (2); saref4auto.rdf (2); saref4bldg.rdf (2); saref4city.rdf (2); saref4ener.rdf (4); saref4envi.rdf (5); saref4inma.rdf (1); saref4watr.rdf (2); saref4wear.rdf (2); 
+owl:Class
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onClass
+  |  |  |  |owl:Class
+  |  |  |owl:onProperty
+  |  |  |  |owl:ObjectProperty
+  |  |  |owl:qualifiedCardinality
+  |  |  |  |Data value
+
+Pattern 6
+Times 53
+Different ontologies 7
+Ontologies in which it appears saref.rdf (1); saref4agri.rdf (1); saref4city.rdf (2); saref4ener.rdf (8); saref4grid.rdf (38); saref4watr.rdf (2); saref4wear.rdf (1); 
+owl:Class
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:cardinality
+  |  |  |  |Data value
+  |  |  |owl:onProperty
+  |  |  |  |owl:DatatypeProperty
+
+Pattern 7
+Times 116
+Different ontologies 11
+Ontologies in which it appears saref.rdf (1); saref4agri.rdf (3); saref4auto.rdf (1); saref4bldg.rdf (89); saref4city.rdf (4); saref4ehaw.rdf (1); saref4ener.rdf (2); saref4envi.rdf (7); saref4inma.rdf (3); saref4watr.rdf (4); saref4wear.rdf (1); 
+owl:Class
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |rdfs:Datatype
+  |  |  |owl:onProperty
+  |  |  |  |owl:DatatypeProperty
+
+Pattern 8
+Times 3
+Different ontologies 2
+Ontologies in which it appears saref.rdf (2); saref4inma.rdf (1); 
+owl:Class
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |owl:Class
+  |  |  |  |  |owl:unionOf
+  |  |  |  |  |  |rdf:List
+  |  |  |  |  |  |  |rdf:first
+  |  |  |  |  |  |  |  |owl:Class
+  |  |  |  |  |  |  |rdf:rest
+  |  |  |  |  |  |  |  |rdf:List
+  |  |  |  |  |  |  |  |  |rdf:first
+  |  |  |  |  |  |  |  |  |  |owl:Class
+  |  |  |  |  |  |  |  |  |rdf:rest
+  |  |  |  |  |  |  |  |  |  |rdf:nil
+  |  |  |owl:onProperty
+  |  |  |  |owl:ObjectProperty
+
+Pattern 9
+Times 25
+Different ontologies 4
+Ontologies in which it appears saref4agri.rdf (1); saref4auto.rdf (1); saref4ener.rdf (22); saref4inma.rdf (1); 
+owl:Class
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:maxQualifiedCardinality
+  |  |  |  |Data value
+  |  |  |owl:onClass
+  |  |  |  |owl:Class
+  |  |  |owl:onProperty
+  |  |  |  |owl:ObjectProperty
+
+Pattern 10
+Times 11
+Different ontologies 3
+Ontologies in which it appears saref4agri.rdf (5); saref4envi.rdf (2); saref4inma.rdf (4); 
+owl:Class
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:maxQualifiedCardinality
+  |  |  |  |Data value
+  |  |  |owl:onDataRange
+  |  |  |  |rdfs:Datatype
+  |  |  |owl:onProperty
+  |  |  |  |owl:DatatypeProperty
+
+Pattern 11
+Times 22
+Different ontologies 4
+Ontologies in which it appears saref4agri.rdf (2); saref4auto.rdf (15); saref4inma.rdf (1); saref4lift.rdf (4); 
+owl:Class
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |owl:DatatypeProperty
+  |  |  |owl:someValuesFrom
+  |  |  |  |rdfs:Datatype
+
+Pattern 12
+Times 5
+Different ontologies 5
+Ontologies in which it appears saref4agri.rdf (1); saref4auto.rdf (1); saref4ener.rdf (1); saref4envi.rdf (1); saref4watr.rdf (1); 
+owl:Class
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onDataRange
+  |  |  |  |rdfs:Datatype
+  |  |  |owl:onProperty
+  |  |  |  |owl:DatatypeProperty
+  |  |  |owl:qualifiedCardinality
+  |  |  |  |Data value
+
+Pattern 13
+Times 6
+Different ontologies 2
+Ontologies in which it appears saref4bldg.rdf (4); saref4envi.rdf (2); 
+owl:Class
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |owl:Class
+  |  |  |owl:onProperty
+  |  |  |  |owl:ObjectProperty, owl:TransitiveProperty
+
+Pattern 14
+Times 2
+Different ontologies 1
+Ontologies in which it appears saref4bldg.rdf (2); 
+owl:Class
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |owl:Class
+  |  |  |  |  |owl:unionOf
+  |  |  |  |  |  |rdf:List
+  |  |  |  |  |  |  |rdf:first
+  |  |  |  |  |  |  |  |owl:Class
+  |  |  |  |  |  |  |rdf:rest
+  |  |  |  |  |  |  |  |rdf:List
+  |  |  |  |  |  |  |  |  |rdf:first
+  |  |  |  |  |  |  |  |  |  |owl:Class
+  |  |  |  |  |  |  |  |  |rdf:rest
+  |  |  |  |  |  |  |  |  |  |rdf:nil
+  |  |  |owl:onProperty
+  |  |  |  |owl:ObjectProperty, owl:TransitiveProperty
+
+Pattern 15
+Times 8
+Different ontologies 2
+Ontologies in which it appears saref4bldg.rdf (1); saref4envi.rdf (7); 
+owl:Class
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |rdfs:Datatype
+  |  |  |owl:onProperty
+  |  |  |  |owl:DatatypeProperty, owl:FunctionalProperty
+
+Pattern 16
+Times 6
+Different ontologies 2
+Ontologies in which it appears saref4ener.rdf (4); saref4lift.rdf (2); 
+owl:Class
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:minCardinality
+  |  |  |  |Data value
+  |  |  |owl:onProperty
+  |  |  |  |owl:DatatypeProperty
+
+Pattern 17
+Times 3
+Different ontologies 1
+Ontologies in which it appears saref4ener.rdf (3); 
+owl:Class
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:minQualifiedCardinality
+  |  |  |  |Data value
+  |  |  |owl:onDataRange
+  |  |  |  |rdfs:Datatype
+  |  |  |owl:onProperty
+  |  |  |  |owl:DatatypeProperty
+
+Pattern 18
+Times 3
+Different ontologies 1
+Ontologies in which it appears saref4envi.rdf (3); 
+owl:Class
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:maxQualifiedCardinality
+  |  |  |  |Data value
+  |  |  |owl:onDataRange
+  |  |  |  |rdfs:Datatype
+  |  |  |owl:onProperty
+  |  |  |  |owl:DatatypeProperty, owl:FunctionalProperty
+
+Pattern 19
+Times 2
+Different ontologies 1
+Ontologies in which it appears saref4envi.rdf (2); 
+owl:Class
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |owl:Class
+  |  |  |owl:onProperty
+  |  |  |  |owl:FunctionalProperty, owl:ObjectProperty
+
+Pattern 20
+Times 3
+Different ontologies 1
+Ontologies in which it appears saref4envi.rdf (3); 
+owl:Class
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:hasValue
+  |  |  |  |owl:NamedIndividual
+  |  |  |owl:onProperty
+  |  |  |  |owl:ObjectProperty
+
+Pattern 21
+Times 12
+Different ontologies 1
+Ontologies in which it appears saref4grid.rdf (12); 
+owl:Class
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:cardinality
+  |  |  |  |Data value
+  |  |  |owl:onProperty
+  |  |  |  |owl:ObjectProperty
+
+Pattern 22
+Times 2
+Different ontologies 1
+Ontologies in which it appears saref4lift.rdf (2); 
+owl:Class
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |owl:InverseFunctionalProperty, owl:ObjectProperty
+  |  |  |owl:someValuesFrom
+  |  |  |  |owl:Class
+
+Pattern 23
+Times 3
+Different ontologies 1
+Ontologies in which it appears saref4lift.rdf (3); 
+owl:Class
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |owl:ObjectProperty, owl:TransitiveProperty
+  |  |  |owl:someValuesFrom
+  |  |  |  |owl:Class
+
+Pattern 24
+Times 4
+Different ontologies 1
+Ontologies in which it appears saref4wear.rdf (4); 
+owl:Class
+  |rdfs:subClassOf
+  |  |owl:Class
+  |  |  |owl:intersectionOf
+  |  |  |  |rdf:List
+  |  |  |  |  |rdf:first
+  |  |  |  |  |  |owl:Class
+  |  |  |  |  |rdf:rest
+  |  |  |  |  |  |rdf:List
+  |  |  |  |  |  |  |rdf:first
+  |  |  |  |  |  |  |  |owl:Restriction
+  |  |  |  |  |  |  |  |  |owl:onProperty
+  |  |  |  |  |  |  |  |  |  |owl:ObjectProperty
+  |  |  |  |  |  |  |  |  |owl:someValuesFrom
+  |  |  |  |  |  |  |  |  |  |owl:Class
+  |  |  |  |  |  |  |rdf:rest
+  |  |  |  |  |  |  |  |rdf:nil
+
