@@ -2,7 +2,6 @@
     box-sizing: border-box;
 }
 
-
 #sidebar{
     width: 400px;
 }
@@ -185,7 +184,7 @@ div.img span{
     font-weight: bold;
 }
 
-.content-Strucutures {
+.contenedor-Strucutures {
     /* width: 50%;*/
     width: 48%;
     border: 1px solid #ccc;
@@ -193,7 +192,7 @@ div.img span{
     vertical-align: top; /* Asegura alineación superior */
   }
 
-  .container-Structures {
+  .contenedor-Structures {
     display: flex;
     justify-content: space-between;
     padding: 20px;
@@ -208,3 +207,9 @@ div.img span{
     display: flex;
     margin-bottom: 20px;
   }
+
+  .contenedor-contents-patterns{
+    width: 188px;
+    height: 50px;
+  }
+

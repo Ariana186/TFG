@@ -26,65 +26,63 @@
     <title>PatternType</title>
   </head>
   <body>
-    <div id="content" class="col-12 col-xl-9 px-0 ms-auto">
-      <!--Navbar-->
-      <header>
-        <nav class="navbar navbar-expand-lg navbar-light py-3 text-dark">
-          <div class="container">
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav ms-auto fw-bold mx-4">
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('pattern_types') }}"
-                    >Patterns Type</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('pattern_name') }}"
-                    >Patterns Name</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('structure') }}"
-                    >Structures</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('about') }}">About</a>
-                </li>
-              </ul>
+    <div class="row">
+      {{ table_of_contents|safe }}
+      <div id="content" class="col-12 col-xl-9 px-0 ms-auto">
+        <!--Navbar-->
+        <header>
+          <nav class="navbar navbar-expand-lg navbar-light py-3 text-dark">
+            <div class="container">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto fw-bold mx-4">
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('pattern_types') }}"
+                      >Patterns Type</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('pattern_name') }}"
+                      >Patterns Name</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('structure') }}"
+                      >Structures</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('about') }}">About</a>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </nav>
-      </header>
+          </nav>
+        </header>
 
-      <!--Showcase-->
-      <section class="showcase pt-5 px-5 text-light">
+        <!--Showcase-->
+        <section class="showcase pt-5 px-5 text-light">
+          <div class="container">
+            <h1 id="title" class="pt-4 pb-2">Ontologies Visualization</h1>
+          </div>
+        </section>
+
         <div class="container">
-          <h1 id="title" class="pt-4 pb-2">Ontologies Visualization</h1>
+          <section id="specification-ontologists" class="pt-5 px-5">
+            {{ content_type|safe }}
+          </section>
         </div>
-      </section>
-
-      <section class="pt-3 px-5">
-        <div class="container-Structures">
-          <div class="content-Structures">
-            <pre>{{ content_type|safe }}</pre>
-          </div>
-          <div class="content-Structures">
-            <pre>{{ content_blank_nodes|safe }}</pre>
-          </div>
-        </div>
-      </section>
+      </div>
     </div>
   </body>
 </html>

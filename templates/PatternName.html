@@ -26,57 +26,63 @@
     <title>PatternType</title>
   </head>
   <body>
-    <pre>{{ table_of_contents|safe }}</pre>
-    <div id="content" class="col-12 col-xl-9 px-0 ms-auto">
-      <!--Navbar-->
-      <header>
-        <nav class="navbar navbar-expand-lg navbar-light py-3 text-dark">
-          <div class="container">
-            <button
-              class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav ms-auto fw-bold mx-4">
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('pattern_types') }}"
-                    >Patterns Type</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('pattern_name') }}"
-                    >Patterns Name</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('structure') }}"
-                    >Structures</a
-                  >
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('about') }}">About</a>
-                </li>
-              </ul>
+    <div class="row">
+      {{ table_of_contents|safe }}
+      <div id="content" class="col-12 col-xl-9 px-0 ms-auto">
+        <!--Navbar-->
+        <header>
+          <nav class="navbar navbar-expand-lg navbar-light py-3 text-dark">
+            <div class="container">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto fw-bold mx-4">
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('pattern_types') }}"
+                      >Patterns Type</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('pattern_name') }}"
+                      >Patterns Name</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('structure') }}"
+                      >Structures</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('about') }}">About</a>
+                  </li>
+                </ul>
+              </div>
             </div>
+          </nav>
+        </header>
+
+        <!--Showcase-->
+        <section class="showcase pt-5 px-5 text-light">
+          <div class="container">
+            <h1 id="title" class="pt-4 pb-2">Ontologies Visualization</h1>
           </div>
-        </nav>
-      </header>
+        </section>
 
-      <!--Showcase-->
-      <section class="showcase pt-5 px-5 text-light">
         <div class="container">
-          <h1 id="title" class="pt-4 pb-2">Ontologies Visualization</h1>
+          <section id="specification-ontologists" class="pt-5 px-5">
+            {{ pattern_content_name|safe }}
+          </section>
         </div>
-      </section>
-
-      <pre>{{ pattern_content_name|safe }}</pre>
+      </div>
     </div>
   </body>
 </html>
