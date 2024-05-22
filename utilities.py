@@ -19,7 +19,6 @@ def read_csv_file(filename):
                     if pattern_key not in data:
                         data[pattern_key] = []
                     data[pattern_key].append(row)
-
     except FileNotFoundError:
         return "File not found."
     return data
@@ -66,7 +65,7 @@ def read_and_process_patterns(filename, csv_data):
                 # Concatenar texto del CSV que sea del patrón correspondiente
                 if pattern_key in csv_data:
                     for csv_row in csv_data[pattern_key]:
-                        pattern_content_type += f"""<p>Estructuras en las que aparece:
+                        pattern_content_type += f"""<p>Structures in which it appears:
                         <ol>"""
                         ontologie = ""
                         for structure in csv_row[3:]:
@@ -74,10 +73,10 @@ def read_and_process_patterns(filename, csv_data):
                                 pattern_content_type+=f"<li>{structure}</li>"
                             else:
                                if ontologie:
-                                    pattern_content_type+=f"""                        </ul>
+                                    pattern_content_type+=f"""                        </ul><br>
                                 """
                                ontologie = structure.split("-")[0]
-                               pattern_content_type+=f"""<br><span class='black-letter'><li>{ontologie}</li></span>
+                               pattern_content_type+=f"""<span class='black-letter'><li>{ontologie}</li></span>
                         <ul>
                             <li>{structure}</li>"""
                     pattern_content_type+=f"""                        </ul>
@@ -132,7 +131,7 @@ def read_and_process_file_structure_blank_nodes(filename):
                     foundLineHeader = False
                 
     except FileNotFoundError:
-            return "Archivo no encontrado." 
+            return "File not found." 
     return structure_list
 
 
@@ -154,7 +153,7 @@ def read_and_process_file_structure(filename,structure_blank_nodes_list):
       
             if line.startswith("Ontology"):
                 ontology_name = line.split(":")[1].strip()
-                processed_content_aux = f"<p>Ontología Detectada: {ontology_name}</p>"
+                processed_content_aux = f"<p>Detected Ontology: {ontology_name}</p>"
                 foundFirstParagraph = True
             elif foundFirstParagraph:  
                 if line.startswith("Structure:"):
@@ -190,7 +189,7 @@ def read_and_process_file_structure(filename,structure_blank_nodes_list):
                     foundLineHeader = False
                 
     except FileNotFoundError:
-            return "Archivo no encontrado." 
+            return "File not found." 
     return processed_content, header_list
 
  

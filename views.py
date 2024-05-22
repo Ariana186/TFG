@@ -16,7 +16,7 @@ def setup_routes(app):
         table_of_contents = create_table_of_contents(header_list)
         return render_template('PatternName.html', pattern_content_name=pattern_content_name,table_of_contents=table_of_contents)
 
-    @app.route('/structure')
+    @app.route('/structures')
     def structure():
             
             content_blank_nodes=read_and_process_file_structure_blank_nodes('Structure_term_inferred_blank_nodes.txt')

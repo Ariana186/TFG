@@ -78,9 +78,6 @@
                       >Structures</a
                     >
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('about') }}">About</a>
-                  </li>
                 </ul>
               </div>
             </div>
@@ -101,9 +98,6 @@
           <script>
             $("[data-fancybox]").fancybox({
               // Opciones de configuración
-              loop: true, // Permite que la galería empiece de nuevo al llegar al final
-              width: $(window).width() * 0.6, // 75% del ancho de la ventana
-              height: $(window).height() * 0.6,
               buttons: [
                 "share",
                 "slideShow",
@@ -112,8 +106,8 @@
                 "thumbs",
                 "close",
               ],
-
-              protect: true, // Deshabilita el clic derecho sobre la imagen para protegerla
+              width: $(window).width() * 0.8, // 60% del ancho de la ventana
+              height: $(window).height() * 0.8, // 60% de la altura de la ventana
             });
           </script>
         </div>

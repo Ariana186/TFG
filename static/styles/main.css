@@ -2,13 +2,6 @@
     box-sizing: border-box;
 }
 
-#sidebar{
-    width: 400px;
-}
-
-#logo{
-    width: 150px;
-}
 
 .showcase{
     background-image: linear-gradient(120deg, #155799, #159957);
@@ -33,13 +26,6 @@
     text-decoration: underline;
 }
 
-.footer-logo{
-    width: 30%;
-}
-
-.video{
-    height: 100%;
-}
 
 .drop-area{
     border-radius: 5px;
@@ -184,32 +170,4 @@ div.img span{
     font-weight: bold;
 }
 
-.contenedor-Strucutures {
-    /* width: 50%;*/
-    width: 48%;
-    border: 1px solid #ccc;
-    padding: 10px;
-    vertical-align: top; /* Asegura alineación superior */
-  }
-
-  .contenedor-Structures {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-  }
-  .column {
-    width: 48%;
-    border: 1px solid #ccc;
-    padding: 10px;
-    vertical-align: top; /* Asegura alineación superior */
-  }
-  .structure {
-    display: flex;
-    margin-bottom: 20px;
-  }
-
-  .contenedor-contents-patterns{
-    width: 188px;
-    height: 50px;
-  }
 
