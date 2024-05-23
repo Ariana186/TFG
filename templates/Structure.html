@@ -27,7 +27,15 @@
   </head>
   <body>
     <div class="row">
-      {{ table_of_contents|safe }}
+      <div id="toc" class="col-3 pt-4 d-none d-xl-block bg-light px-5">
+        <div class="container">
+          <h4 class="options text-secundary pb-2">Table of Contents</h4>
+          {%for header in header_list %}
+          <p><a href="#{{header}}">{{header}}</a></p>
+          {% endfor %}
+        </div>
+      </div>
+
       <div id="content" class="col-12 col-xl-9 px-0 ms-auto">
         <!--Navbar-->
         <header>
@@ -76,7 +84,35 @@
 
         <div class="container">
           <section id="specification-ontologists" class="pt-5 px-5">
-            {{ content_type|safe }}
+            {% for key, value in content_type.items() %} {% if loop.first %}
+            <h4 id="{{ key }}">{{ key }}</h4>
+            {% else %}
+            <h4 id="{{ key }}" class="pt-5">{{ key }}</h4>
+            {% endif %}
+            <table class="table table-bordered align-middle pt-3">
+              <thead>
+                <tr>
+                  <th scope="col" style="width: 50%">
+                    Structure Term Inferred Type
+                  </th>
+                  <th scope="col" style="width: 50%">
+                    Structure Term Inferred Blank Nodes
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <code> {{ value[0]|safe }} </code>
+                  </td>
+                  <td>
+                    <code> {{ value[1]|safe }} </code>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p>Detected Ontology: {{ value[2]}}</p>
+            {% endfor %}
           </section>
         </div>
       </div>

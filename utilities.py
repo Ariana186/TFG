@@ -23,11 +23,16 @@ def read_csv_file(filename):
         return "File not found."
     return data
 
-# Función para crear el HTML de PatternType y PatternName
+# Función para leer un archivo txt y devolver un diccionario y una lista de las cabeceras
 def read_and_process_patterns(filename, csv_data):
     path = os.path.join(current_app.root_path, 'data', filename)
-    pattern_content_type = ""
-    pattern_content_type_aux = ""
+    data = {}
+    content=[]
+    diagram = ""
+    times=""
+    ontologies=""
+    csv=[]
+    value_csv={}
     found_owl_class_section = False
     header_list = []
 
@@ -38,67 +43,57 @@ def read_and_process_patterns(filename, csv_data):
             if not patterns[0] :
                 patterns.pop(0)
 
-
+            # guardar los datos del txt
             for index, pattern in enumerate(patterns, start=1):
-                pattern_key = f"Pattern {index}"
+                pattern_key = f"Pattern {index}" 
                 header_list.append(pattern_key)
                 lines = pattern.split('\n')
                 found_owl_class_section = False
-                pattern_content_type_aux = ""
+                diagram=""
                 for line in lines:
                     line = line.strip()
-                    if line.startswith(str(index)):
-                        if index==1:
-                           pattern_content_type += f"<h4 id='{pattern_key}'>{pattern_key}</h4>" 
-                        else:
-                            pattern_content_type += f"<h4 id='{pattern_key}'class='pt-5'>{pattern_key}</h4>"
-                    elif line.startswith("Ontologies in which it appears"):
+                    if line.startswith("Ontologies in which it appears"):
                         found_owl_class_section = True
-                        pattern_content_type += "<p><code>"
                     elif found_owl_class_section and line:
-                        pattern_content_type += line + "<br>"
-                    elif "Times" in line or "Different ontologies" in line:
-                        pattern_content_type_aux += line + "<br>"
-
-                pattern_content_type += "<br></code>" + pattern_content_type_aux +"</p>"
-
-                # Concatenar texto del CSV que sea del patrón correspondiente
+                        diagram += line + "<br>"
+                    elif "Times" in line:
+                        times = line;
+                    elif "Different ontologies" in line:
+                        ontologies= line 
+                
+                # guardar el texto del csv
+                csv=[]
+                value_csv={}
                 if pattern_key in csv_data:
                     for csv_row in csv_data[pattern_key]:
-                        pattern_content_type += f"""<p>Structures in which it appears:
-                        <ol>"""
-                        ontologie = ""
                         for structure in csv_row[3:]:
-                            if structure.split("-")[0] == ontologie:
-                                pattern_content_type+=f"<li>{structure}</li>"
-                            else:
-                               if ontologie:
-                                    pattern_content_type+=f"""                        </ul><br>
-                                """
-                               ontologie = structure.split("-")[0]
-                               pattern_content_type+=f"""<span class='black-letter'><li>{ontologie}</li></span>
-                        <ul>
-                            <li>{structure}</li>"""
-                    pattern_content_type+=f"""                        </ul>
-                        </ol>
-                    </p>"""
+                            key = structure.split("-")[0]
+                            if key not in value_csv:
+                                value_csv[key] = []
+                            value_csv[key].append(structure)
+                    csv.append(value_csv)
                 else:
-                    pattern_content_type += "\nNo CSV data found for this pattern.\n"
+                    value_csv = {"No data": ["No CSV data found for this pattern."]}
 
                 # Verificar y añadir imagen
                 if filename == "Patterns_type.txt":
                     image_file = f"{pattern_key}.svg"
                     image_path = os.path.join(current_app.root_path, 'static', 'images', image_file)
-                    if image_exists(image_path):
-                        pattern_content_type += f"""<br><a href="{url_for("static", filename=f"images/{image_file}")}" data-fancybox>
-                        <img src="{url_for("static", filename=f"images/{image_file}")}" alt="img type {pattern_key}" /></a>"""
-                    else:
-                        pattern_content_type += '<p>No image available for this pattern.</p>'
+                    image_file=url_for("static", filename=f"images/{image_file}")
+                    if not image_exists(image_path):
+                        image_file = 'No image available for this pattern.'
 
+                #añadir al diccionario de salida
+                if filename == "Patterns_type.txt":
+                    content =[diagram,times,ontologies,csv,image_file]
+                    data.update({pattern_key:content})
+                else:
+                    content =[diagram,times,ontologies,csv]
+                    data.update({pattern_key:content})
     except FileNotFoundError:
         pattern_content_type = "File not found."
 
-    return pattern_content_type,header_list
+    return data,header_list
 
 # Función para leer Structure Blank Nodes
 def read_and_process_file_structure_blank_nodes(filename):
@@ -124,7 +119,7 @@ def read_and_process_file_structure_blank_nodes(filename):
                     structure_key = line.split(":")[1].strip()
                     foundLineHeader = True
                 elif foundLineHeader and line:
-                    processed_content += "<code>"+line + "</code><br>"
+                    processed_content += line + "<br>"
                 elif line == "":
                     structure_list.update({structure_key:processed_content})
                     foundFirstParagraph = False
@@ -135,15 +130,17 @@ def read_and_process_file_structure_blank_nodes(filename):
     return structure_list
 
 
-# Función para crear el HTML de Structure
+# Función leer un archivo txt y devolver un diccionario y una lista de las cabeceras
 def read_and_process_file_structure(filename,structure_blank_nodes_list):
     path = os.path.join(current_app.root_path, 'data', filename)
     try:
         with open(path, 'r', encoding='utf-8') as file:
             lines = file.readlines()
-        
-        processed_content = ""
-        processed_content_aux = ""
+
+        data = {}
+        content=[]
+        ontology_name=""
+        diagram_inferred_type =""
         header_list = []
         foundFirstParagraph = False
         foundLineHeader = False
@@ -153,57 +150,21 @@ def read_and_process_file_structure(filename,structure_blank_nodes_list):
       
             if line.startswith("Ontology"):
                 ontology_name = line.split(":")[1].strip()
-                processed_content_aux = f"<p>Detected Ontology: {ontology_name}</p>"
                 foundFirstParagraph = True
             elif foundFirstParagraph:  
                 if line.startswith("Structure:"):
-                    structure_type = line.split(":")[1].strip()
-                    
-                    if len(header_list)==0:
-                        processed_content += f"""<h4 id='{structure_type}'>{structure_type}</h4>"""
-                    else:
-                        processed_content += f"""<h4 id='{structure_type}' class="pt-3">{structure_type}</h4>"""
-                    processed_content += f"""<table class="table table-bordered align-middle pt-3">
-                        <thead>
-                            <tr>
-                                <th scope="col" style="width: 50%;">Structure Term Inferred Type</th>
-                                <th scope="col" style="width: 50%;">Structure Term Inferred Blank Nodes</th>
-                            </tr>
-                        </thead>
-                            
-                        <tbody>
-                            <tr>
-                                <td>"""
+                    structure_key = line.split(":")[1].strip()
                     foundLineHeader = True
-                    header_list.append(structure_type)
+                    header_list.append(structure_key)
                 elif foundLineHeader and line:
-                    processed_content +="<code>"+ line + "</code><br>"
+                    diagram_inferred_type +=line + "<br>"
                 elif line == "":
-                    processed_content += f"""</td>
-                                <td>{structure_blank_nodes_list[structure_type]}</td>
-                        </tbody>
-                    </table>
-                    """
-                    processed_content += "<p>"+processed_content_aux+"</p></details>"
                     foundFirstParagraph = False
                     foundLineHeader = False
+                    content =[diagram_inferred_type,structure_blank_nodes_list[structure_key],ontology_name]
+                    data.update({structure_key:content})
+                    diagram_inferred_type=""
                 
     except FileNotFoundError:
             return "File not found." 
-    return processed_content, header_list
-
- 
-#Función para crear la Tabla de contenidos 
-def create_table_of_contents(header_list):
-
-    table_of_contents = f"""<div id='toc' class='col-3 pt-4 d-none d-xl-block bg-light px-5'>
-        <div class='container'>
-          <h4 class='options text-secondary pb-2'>Table of Contents</h4>"""
-    
-    for structure in header_list:
-        table_of_contents += f"<p><a href='#{structure}'>{structure}</a></p>"
-    
-    table_of_contents += f"""</div>
-      </div>"""    
-        
-    return table_of_contents
+    return data, header_list
