@@ -170,4 +170,29 @@ div.img span{
     font-weight: bold;
 }
 
+#container-patterntype {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#container-diagram-ontologie{
+    float: left;
+    width: 50%;
+}
+#container-image-patterntype {
+    align-content: center; 
+    justify-content: center; 
+    float: right;
+    width: 50%;
+}
+
+.custom-badge {
+    background-color: #159957; /* Cambia este valor al color que prefieras */
+    color: white; /* Cambia este valor al color de texto que prefieras */
+}
+
+.custom-btn {
+    background-color: #155799; /* Cambia este valor al color que prefieras */
+    color: white; /* Cambia este valor al color de texto que prefieras */
+}
 

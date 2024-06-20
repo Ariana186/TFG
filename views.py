@@ -21,7 +21,4 @@ def setup_routes(app):
             content_type,header_list = read_and_process_file_structure('Structure_term_inferred_type.txt',content_blank_nodes)
             return render_template('Structure.html', content_type=content_type, content_blank_nodes=content_blank_nodes,header_list=header_list)
 
-    @app.route('/about')
-    def about():
-        return render_template('About.html')
 

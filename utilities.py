@@ -1,5 +1,6 @@
 import os
 import csv
+import re
 from flask import current_app,url_for
 
 # Función para examinar si una imagen existe en la ruta 
@@ -35,6 +36,8 @@ def read_and_process_patterns(filename, csv_data):
     value_csv={}
     found_owl_class_section = False
     header_list = []
+    ontologiesAppears=""
+    keyNameCsv=[]
 
     try:
         with open(path, 'r', encoding='utf-8') as file:
@@ -53,6 +56,7 @@ def read_and_process_patterns(filename, csv_data):
                 for line in lines:
                     line = line.strip()
                     if line.startswith("Ontologies in which it appears"):
+                        ontologiesAppears = line.replace("Ontologies in which it appears","")
                         found_owl_class_section = True
                     elif found_owl_class_section and line:
                         diagram += line + "<br>"
@@ -62,15 +66,29 @@ def read_and_process_patterns(filename, csv_data):
                         ontologies= line 
                 
                 # guardar el texto del csv
+
+                #restaurar variables
                 csv=[]
                 value_csv={}
+
+                #Separamos por ; y añadimos las claves al diccionario value_csv
+                keyNameCsv = ontologiesAppears.split(";")
+                for key in keyNameCsv:
+                    key = key.strip()
+                    if key:
+                        value_csv[key] = []
+                #
                 if pattern_key in csv_data:
                     for csv_row in csv_data[pattern_key]:
                         for structure in csv_row[3:]:
-                            key = structure.split("-")[0]
-                            if key not in value_csv:
-                                value_csv[key] = []
-                            value_csv[key].append(structure)
+                            aux_structure = structure.split("-")[0]
+                            # comporbamos si la stucture
+                            #  está contenida en el nombre de alguna key del diccionario
+                            for key in value_csv.keys():
+                                # si está contenida metemos la structure como valor de dicha key
+                                if aux_structure in key:
+                                    value_csv[key].append(structure)
+                                    break
                     csv.append(value_csv)
                 else:
                     value_csv = {"No data": ["No CSV data found for this pattern."]}

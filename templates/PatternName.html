@@ -27,7 +27,7 @@
   </head>
   <body>
     <div class="row">
-      <div id='toc' class='col-3 pt-4 d-none d-xl-block bg-light px-5'>
+      <div id="toc" class="col-3 pt-4 d-none d-xl-block bg-light px-5">
         <div class="container">
           <h4 class="options text-secundary pb-2">Table of Contents</h4>
           {%for header in header_list %}
@@ -84,7 +84,8 @@
 
         <div class="container">
           <section id="specification-ontologists" class="pt-5 px-5">
-            {% for key, pattern in pattern_content_name.items() %}{% if loop.first %}
+            {% for key, pattern in pattern_content_name.items() %}{% if
+            loop.first %}
             <h4 id="{{ key }}">{{ key }}</h4>
             {% else %}
             <h4 id="{{ key }}" class="pt-5">{{ key }}</h4>
@@ -94,31 +95,19 @@
               <code>{{ pattern[0]|safe }}</code>
             </p>
             <!--Times-->
-            <p>
-              {{ pattern[1] }}
-            </p> 
+            <p>{{ pattern[1] }}</p>
             <!--Number of ontologies-->
-            <p>
-              {{ pattern[2]|safe }}
-            </p>
+            <p>{{ pattern[2]|safe }}</p>
             <!--List of structures-->
-            <p>Structures in which it appears:
-              <ol>
-                {% for structures in pattern[3] %} 
-                {% for key, value in structures.items()  %} 
-                <span class='black-letter'><li>{{key}}</li></span>
-                  <ul>
-                    {% for structure in value %}
-                    <li>{{ structure }}</li>
-                    {% endfor %}
-                  </ul>
-                  {% endfor %}
-                {% endfor %}
-              </ol>
+            <p>
+              Structures in which it appears: <br />{% for structures in
+              pattern[3] %} {% for key, value in structures.items() %} {% for
+              structure in value %}
+              <span class="badge custom-badge mt-2">{{ structure }}</span>
+              {% endfor %} {% endfor %} {% endfor %}
             </p>
-            {% endfor %} 
+            {% endfor %}
           </section>
-
         </div>
       </div>
     </div>
