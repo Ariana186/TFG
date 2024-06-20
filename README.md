@@ -6,20 +6,20 @@ Esta aplicación web permite la visualización y análisis de modelos ontológic
 
 ## INSTALACIÓN
 
-### 1.Clona el repositorio
+### 1. Clona el repositorio
 
 ```bash
 git clone https://github.com/Ariana186/TFG.git
 ```
 
-### 2.Crea y activa un entorno virtual
+### 2. Crea y activa un entorno virtual
 
 ```bash
 python -m venv env
 source env/bin/activate  # En Windows usa `env\\Scripts\\activate`
 ```
 
-### 3.Instala las dependencias
+### 3. Instala las dependencias
 
 ```bash
 pip install -r requirements.txt
@@ -27,7 +27,9 @@ pip install -r requirements.txt
 
 ## USO
 
-1. Asegúrate de tener los archivos de datos necesarios en los directorios correspondientes:
+### 1. Preparar Archivos de Datos
+
+Asegúrate de tener los archivos de datos necesarios en los directorios correspondientes:
 
 - /data
 
@@ -41,10 +43,12 @@ pip install -r requirements.txt
 - /static/imagenes
   - Listado de las imágenes Pattern X.svg
 
-2. Ejecuta la aplicación Flask:
+## 2. Ejecuta la aplicación Flask
 
 ```bash
 python app.py
 ```
 
-3. Abre tu navegador web y navega a http://127.0.0.1:5000 para interactuar con la aplicación.
+## 3. Interactuar con la aplicación
+
+Abre tu navegador web y navega a http://127.0.0.1:5000
