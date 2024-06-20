@@ -28,15 +28,16 @@ pip install -r requirements.txt
 ## USO
 
 1. Asegúrate de tener los archivos de datos necesarios en los directorios correspondientes:
-   -/data
-   -Patterns_name.csv
-   -Patterns_name.txt
-   -Patterns_type.csv
-   -Patterns_type.txt
-   -Structure_term_inferred_blank_nodes.txt
-   -Structure_term_inferred_type.txt
+   */data
+   *Patterns_name.csv
+   *Patterns_name.txt
+   *Patterns_type.csv
+   *Patterns_type.txt
+   *Structure_term_inferred_blank_nodes.txt
+   \*Structure_term_inferred_type.txt
 
--/static/imagenes - Listado de las imágenes Pattern X.svg
+*/static/imagenes
+*Listado de las imágenes Pattern X.svg
 
 2. Ejecuta la aplicación Flask:
 
