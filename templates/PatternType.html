@@ -146,9 +146,18 @@
                           {{ key }}
                       </a>
                   </p>
-                  <div class="collapse" id="{{ id }}">
+                  <div class="collapse" id="{{ id }}" style="margin-left: 20px;">
                         {% for structure in value %}
-                          <span class="badge custom-badge mb-4">{{ structure }}</span>
+                          <!--<span class="badge custom-badge mb-4">{{ structure }}</span> --> 
+                        {% set id_structure = 'collapse_' ~ structure.replace(".","_") ~ '_' ~ loop.index %}
+                        <p class="d-inline-flex gap-1">
+                          <a class="btn custom-btn-structure" data-bs-toggle="collapse" href="#{{ id_structure }}" role="button" aria-expanded="false" aria-controls="{{ id_structure }}">
+                            {{ structure }}
+                          </a> 
+                        </p>
+                        <div class="collapse pb-4" id="{{ id_structure }}" style="margin-left: 20px;">
+                          <code>{{ content_blank_nodes[structure] | safe}}</code>
+                        </div>
                         {% endfor %}
                   </div>  
               {% endfor %}

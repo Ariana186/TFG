@@ -187,12 +187,26 @@ div.img span{
 }
 
 .custom-badge {
-    background-color: #159957; /* Cambia este valor al color que prefieras */
-    color: white; /* Cambia este valor al color de texto que prefieras */
+    background-color: #159957; 
+    color: white; 
+    padding: 0.25rem 0.5rem;  
+    font-size: 0.875rem;      
+    line-height: 1.5;         
+    border-radius: 0.2rem;
+    font-weight: normal;
 }
 
 .custom-btn {
-    background-color: #155799; /* Cambia este valor al color que prefieras */
-    color: white; /* Cambia este valor al color de texto que prefieras */
+    background-color: #155799; 
+    color: white; 
+}
+
+.custom-btn-structure {
+    background-color: #159957; 
+    color: white; 
+    padding: 0.25rem 0.5rem;  
+    font-size: 0.875rem;      
+    line-height: 1.5;         
+    border-radius: 0.2rem;
 }
 

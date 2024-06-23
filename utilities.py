@@ -48,7 +48,8 @@ def read_and_process_patterns(filename, csv_data):
 
             # guardar los datos del txt
             for index, pattern in enumerate(patterns, start=1):
-                pattern_key = f"Pattern {index}" 
+                if filename == "Patterns_name.txt": pattern_key = f"Pattern {index}" 
+                else: pattern_key = f"Pattern {index}"
                 header_list.append(pattern_key)
                 lines = pattern.split('\n')
                 found_owl_class_section = False

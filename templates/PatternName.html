@@ -31,7 +31,7 @@
         <div class="container">
           <h4 class="options text-secundary pb-2">Table of Contents</h4>
           {%for header in header_list %}
-          <p><a href="#{{header}}">{{header}}</a></p>
+          <p><a href="#{{header}}">Specific {{header}}</a></p>
           {% endfor %}
         </div>
       </div>
@@ -86,9 +86,9 @@
           <section id="specification-ontologists" class="pt-5 px-5">
             {% for key, pattern in pattern_content_name.items() %}{% if
             loop.first %}
-            <h4 id="{{ key }}">{{ key }}</h4>
+            <h4 id="{{ key }}">Specific {{ key }}</h4>
             {% else %}
-            <h4 id="{{ key }}" class="pt-5">{{ key }}</h4>
+            <h4 id="{{ key }}" class="pt-5">Specific {{ key }}</h4>
             {% endif %}
             <!--Diagram-->
             <p>
