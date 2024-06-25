@@ -1,8 +1,12 @@
-from flask import render_template
+from flask import render_template, redirect, url_for
 from utilities import read_csv_file, read_and_process_patterns,read_and_process_file_structure,read_and_process_file_structure_blank_nodes
 
 def setup_routes(app):
     @app.route('/')
+    def home():
+        return redirect(url_for('pattern_types'))
+
+    @app.route('/pattern-type')
     def pattern_types():
         csv_type_data = read_csv_file('Patterns_type.csv')
         pattern_content_type,header_list = read_and_process_patterns('Patterns_type.txt', csv_type_data)

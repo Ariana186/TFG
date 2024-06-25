@@ -22,6 +22,7 @@ def read_csv_file(filename):
                     data[pattern_key].append(row)
     except FileNotFoundError:
         return "File not found."
+    print("Resultado de read_csv_file" + str(data))
     return data
 
 # Función para leer un archivo txt y devolver un diccionario y una lista de las cabeceras
@@ -48,8 +49,7 @@ def read_and_process_patterns(filename, csv_data):
 
             # guardar los datos del txt
             for index, pattern in enumerate(patterns, start=1):
-                if filename == "Patterns_name.txt": pattern_key = f"Pattern {index}" 
-                else: pattern_key = f"Pattern {index}"
+                pattern_key = f"Pattern {index}"
                 header_list.append(pattern_key)
                 lines = pattern.split('\n')
                 found_owl_class_section = False
@@ -66,8 +66,7 @@ def read_and_process_patterns(filename, csv_data):
                     elif "Different ontologies" in line:
                         ontologies= line 
                 
-                # guardar el texto del csv
-
+            # guardar el texto del csv
                 #restaurar variables
                 csv=[]
                 value_csv={}
@@ -83,7 +82,7 @@ def read_and_process_patterns(filename, csv_data):
                     for csv_row in csv_data[pattern_key]:
                         for structure in csv_row[3:]:
                             aux_structure = structure.split("-")[0]
-                            # comporbamos si la stucture
+                            # comprobamos si la stucture:
                             #  está contenida en el nombre de alguna key del diccionario
                             for key in value_csv.keys():
                                 # si está contenida metemos la structure como valor de dicha key
@@ -94,7 +93,7 @@ def read_and_process_patterns(filename, csv_data):
                 else:
                     value_csv = {"No data": ["No CSV data found for this pattern."]}
 
-                # Verificar y añadir imagen
+            # Verificar y añadir imagen
                 if filename == "Patterns_type.txt":
                     image_file = f"{pattern_key}.svg"
                     image_path = os.path.join(current_app.root_path, 'static', 'images', image_file)
@@ -102,7 +101,7 @@ def read_and_process_patterns(filename, csv_data):
                     if not image_exists(image_path):
                         image_file = 'No image available for this pattern.'
 
-                #añadir al diccionario de salida
+            #añadir al diccionario de salida
                 if filename == "Patterns_type.txt":
                     content =[diagram,times,ontologies,csv,image_file]
                     data.update({pattern_key:content})
