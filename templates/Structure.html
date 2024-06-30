@@ -83,6 +83,9 @@
         </section>
 
         <div class="container">
+          {% if error_message %}
+          <div class="alert alert-danger" role="alert">{{ error_message }}</div>
+          {% endif %}
           <section id="specification-ontologists" class="pt-5 px-5">
             {% for key, value in content_type.items() %} {% if loop.first %}
             <h4 id="{{ key }}">{{ key }}</h4>

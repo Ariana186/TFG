@@ -22,7 +22,6 @@ def read_csv_file(filename):
                     data[pattern_key].append(row)
     except FileNotFoundError:
         return "File not found."
-    print("Resultado de read_csv_file" + str(data))
     return data
 
 # Función para leer un archivo txt y devolver un diccionario y una lista de las cabeceras
@@ -41,8 +40,12 @@ def read_and_process_patterns(filename, csv_data):
     keyNameCsv=[]
 
     try:
+        if not os.path.exists(path):
+            return {"error": f"The file {filename} does not exist."}, []
         with open(path, 'r', encoding='utf-8') as file:
             content = file.read()
+            if not content:
+                return {"error": f"The file {filename} is empty."}, []
             patterns = content.split("Pattern ")
             if not patterns[0] :
                 patterns.pop(0)
@@ -77,7 +80,7 @@ def read_and_process_patterns(filename, csv_data):
                     key = key.strip()
                     if key:
                         value_csv[key] = []
-                #
+
                 if pattern_key in csv_data:
                     for csv_row in csv_data[pattern_key]:
                         for structure in csv_row[3:]:
@@ -109,7 +112,7 @@ def read_and_process_patterns(filename, csv_data):
                     content =[diagram,times,ontologies,csv]
                     data.update({pattern_key:content})
     except FileNotFoundError:
-        pattern_content_type = "File not found."
+        return {"error": f"The file {filename} does not exist."}, []
 
     return data,header_list
 
@@ -117,9 +120,12 @@ def read_and_process_patterns(filename, csv_data):
 def read_and_process_file_structure_blank_nodes(filename):
     path = os.path.join(current_app.root_path, 'data', filename)
     try:
+        if not os.path.exists(path):
+            return {"error": f"The file {filename} does not exist."}
         with open(path, 'r', encoding='utf-8') as file:
             lines = file.readlines()
-        
+            if not lines:
+                return {"error": f"The file {filename} is empty."}
         processed_content = ""
         structure_key = ""
         structure_list = {}
@@ -128,61 +134,64 @@ def read_and_process_file_structure_blank_nodes(filename):
 
         for line in lines:
             line = line.strip()
-      
             if line.startswith("Ontology"):
                 foundFirstParagraph = True
                 processed_content = ""
-            elif foundFirstParagraph:  
+            elif foundFirstParagraph:
                 if line.startswith("Structure:"):
                     structure_key = line.split(":")[1].strip()
                     foundLineHeader = True
                 elif foundLineHeader and line:
                     processed_content += line + "<br>"
                 elif line == "":
-                    structure_list.update({structure_key:processed_content})
+                    structure_list.update({structure_key: processed_content})
                     foundFirstParagraph = False
                     foundLineHeader = False
-                
     except FileNotFoundError:
-            return "File not found." 
+        return {"error": f"The file {filename} does not exist."}
     return structure_list
 
-
 # Función leer un archivo txt y devolver un diccionario y una lista de las cabeceras
-def read_and_process_file_structure(filename,structure_blank_nodes_list):
+def read_and_process_file_structure(filename, structure_blank_nodes_list):
     path = os.path.join(current_app.root_path, 'data', filename)
     try:
+        if not os.path.exists(path):
+            return {"error": f"The file {filename} does not exist."}, []
         with open(path, 'r', encoding='utf-8') as file:
             lines = file.readlines()
+            if not lines:
+                return {"error": f"The file {filename} is empty."}, []
 
         data = {}
-        content=[]
-        ontology_name=""
-        diagram_inferred_type =""
+        content = []
+        ontology_name = ""
+        diagram_inferred_type = ""
         header_list = []
         foundFirstParagraph = False
         foundLineHeader = False
 
         for line in lines:
             line = line.strip()
-      
             if line.startswith("Ontology"):
                 ontology_name = line.split(":")[1].strip()
                 foundFirstParagraph = True
-            elif foundFirstParagraph:  
+            elif foundFirstParagraph:
                 if line.startswith("Structure:"):
                     structure_key = line.split(":")[1].strip()
                     foundLineHeader = True
                     header_list.append(structure_key)
                 elif foundLineHeader and line:
-                    diagram_inferred_type +=line + "<br>"
+                    diagram_inferred_type += line + "<br>"
                 elif line == "":
                     foundFirstParagraph = False
                     foundLineHeader = False
-                    content =[diagram_inferred_type,structure_blank_nodes_list[structure_key],ontology_name]
-                    data.update({structure_key:content})
-                    diagram_inferred_type=""
-                
+                    if structure_key in structure_blank_nodes_list:
+                        blank_nodes_content = structure_blank_nodes_list[structure_key]
+                    else:
+                        blank_nodes_content = "No data"
+                    content = [diagram_inferred_type, blank_nodes_content, ontology_name]
+                    data.update({structure_key: content})
+                    diagram_inferred_type = ""
     except FileNotFoundError:
-            return "File not found." 
+        return {"error": f"The file {filename} does not exist."}, []
     return data, header_list

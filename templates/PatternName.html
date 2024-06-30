@@ -83,6 +83,9 @@
         </section>
 
         <div class="container">
+          {% if error_message %}
+          <div class="alert alert-danger" role="alert">{{ error_message }}</div>
+          {% endif %}
           <section id="specification-ontologists" class="pt-5 px-5">
             {% for key, pattern in pattern_content_name.items() %}{% if
             loop.first %}
@@ -100,11 +103,18 @@
             <p>{{ pattern[2]|safe }}</p>
             <!--List of structures-->
             <p>
-              Structures in which it appears: <br />{% for structures in
-              pattern[3] %} {% for key, value in structures.items() %} {% for
-              structure in value %}
-              <span class="badge custom-badge mt-2">{{ structure }}</span>
-              {% endfor %} {% endfor %} {% endfor %}
+              Structures in which it appears: <br />
+              {% if not pattern[3]%}
+                <div class="alert alert-danger" role="alert">No CSV data found for this pattern.</div>
+              {% else %}
+                {% for structures in pattern[3] %}
+                  {% for key, value in structures.items() %}
+                    {% for structure in value %}
+                      <span class="badge custom-badge mt-2">{{ structure }}</span>
+                    {% endfor %}
+                  {% endfor %}
+                {% endfor %}
+              {% endif %}
             </p>
             {% endfor %}
           </section>
